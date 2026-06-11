@@ -4,7 +4,7 @@
 
 Este proyecto consiste en una API REST desarrollada con **Node.js**, **Express** y **MongoDB**, implementando autenticación mediante **JSON Web Tokens (JWT)** y siguiendo la arquitectura **MVC (Modelo - Vista - Controlador)**.
 
-Cada usuario puede registrarse, iniciar sesión y administrar sus propias tareas, las cuales están protegidas mediante autenticación.
+Cada usuario puede registrarse, iniciar sesión y administrar sus propios juegos, las cuales están protegidas mediante autenticación.
 
 ## Tecnologías utilizadas
 
@@ -25,25 +25,23 @@ project/
 │
 ├── src/
 │   ├── config/
-│   │   └── db.js
+│   │   └── mongoDbConnection.js
 │   │
 │   ├── controllers/
 │   │   ├── authController.js
-│   │   └── taskController.js
+│   │   └── gameController.js
 │   │
 │   ├── middlewares/
 │   │   ├── authMiddleware.js
-│   │   └── errorMiddleware.js
+│   │   └── limiterMiddleware.js
 │   │
 │   ├── models/
-│   │   ├── User.js
-│   │   └── Task.js
+│   │   ├── GameModel.js
+│   │   └── UserModel.js
 │   │
 │   ├── routes/
 │   │   ├── authRoutes.js
-│   │   └── taskRoutes.js
-│   │
-│   ├── services/
+│   │   └── gameRoutes.js
 │   │
 │   └── app.js
 │
@@ -158,7 +156,7 @@ Respuesta:
 
 ---
 
-## Tareas (protegidas)
+## juegos (protegidos)
 
 Todas las siguientes rutas requieren enviar el token en el header:
 
@@ -166,7 +164,7 @@ Todas las siguientes rutas requieren enviar el token en el header:
 Authorization: Bearer <token>
 ```
 
-### Obtener tareas
+### Obtener juegos
 
 **GET**
 
@@ -176,7 +174,7 @@ Authorization: Bearer <token>
 
 ---
 
-### Crear tarea
+### Crear juego
 
 **POST**
 
@@ -188,14 +186,14 @@ Body:
 
 ```json
 {
-  "title": "Terminar TP",
-  "completed": false
+  "title": "Minecraft",
+  "success": false
 }
 ```
 
 ---
 
-### Actualizar tarea
+### Actualizar juego
 
 **PATCH**
 
@@ -207,13 +205,13 @@ Body:
 
 ```json
 {
-  "completed": true
+  "success": true
 }
 ```
 
 ---
 
-### Eliminar tarea
+### Eliminar juego
 
 **DELETE**
 
@@ -274,7 +272,7 @@ Importar la colección y ejecutar las peticiones siguiendo el orden:
 * Contraseñas encriptadas con bcrypt
 * Autenticación mediante JWT
 * Middleware de protección de rutas
-* CRUD de tareas asociado al usuario autenticado
+* CRUD de juegos asociado al usuario autenticado
 * Arquitectura MVC
 * Conexión a MongoDB mediante Mongoose
 * Variables de entorno con dotenv
