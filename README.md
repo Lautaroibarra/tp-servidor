@@ -277,6 +277,6 @@ Importar la colección y ejecutar las peticiones siguiendo el orden:
 * Conexión a MongoDB mediante Mongoose
 * Variables de entorno con dotenv
 
-# Autor
+# Autor: Lautaro Ibarra
 
 Proyecto desarrollado como trabajo práctico para la materia de Backend utilizando Express, MongoDB y autenticación JWT.
